@@ -1,0 +1,251 @@
+@import url(https://fonts.googleapis.com/css?family=Lato);
+
+body {
+	background: #00a65a;
+	font-family: "Lato", sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+.clearfix {
+	width: 100%;
+	clear: both;
+}
+
+.header-container {
+	position: fixed;
+	width: 460px;
+	height: 100%;
+}
+
+.header {
+	margin-top: 50px;
+	padding: 0 25px;
+	text-align: center;
+}
+
+.header h1 {
+	font-weight: bold;
+	color: #fff;
+	font-size: 36px;
+	line-height: 48px;
+}
+
+.footer {
+	width: 100%;
+	position: absolute;
+	bottom: 20px;
+	text-align: center;
+	font-size: 14px;
+	color: #fff;
+}
+
+.footer a {
+	color: #fff;
+}
+
+.site-title {
+	display: block;
+	height: auto;
+	margin: 0 auto;
+}
+
+.site-title img {
+	display: block;
+	margin: 0 auto;
+	height: auto;
+}
+
+.site-nav {
+	margin-top: 25px;
+}
+
+.site-nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	
+	float: none;
+}
+
+.site-nav ul > li {
+	width: 100%;
+	border-bottom: 1px dotted #fff;
+	text-align: center;
+}
+
+.site-nav ul > li a {
+	display: block;
+	padding: 10px 0;
+	color: #fff;
+	font-size: 16px;
+	text-transform: uppercase;
+	transition: background 0.2s;
+}
+
+.site-nav ul > li a:hover {
+	background: #58A8DE;
+	text-decoration: none;
+}
+
+.content-container {
+	position: absolute;
+	left: 460px;
+	width: calc(100% - 460px);
+	background: #fff;
+}
+
+.site-content {
+	width: 75%;
+	height: 100%;
+	margin: 0 auto;
+	padding: 50px 0;
+}
+
+.section {
+	margin: 0 0 50px 0;
+	font-size: 18px;
+	line-height: 32px;
+	color: #444;
+}
+
+h2.section-title {
+	color: #1E824C;
+	font-weight: bold;
+	font-size: 36px;
+	margin: 0 0 30px 0;
+	padding: 0 0 15px 0;
+	border-bottom: 2.5px solid #1E824C;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.section p {
+	margin-bottom: 20px;
+}
+
+.section p:last-child {
+	margin: 0;
+}
+
+ul.prizes {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+ul.prizes > li {
+	background: #fff;
+	padding: 10px;
+	margin: 0 0 15px 0;
+	box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
+}
+
+.section ol {
+	margin: 0;
+	padding: 0 0 0 30px;
+}
+
+.section ol > li {
+	margin: 0 0 15px 0;
+}
+
+label.error {
+	color: #c0392b;
+	font-size: 14px;
+}
+
+label.error[for="contests[]"] {
+	margin: 0 10px;
+}
+
+@media all and (max-width: 1600px) {
+	.header-container {
+		width: 360px;
+	}
+
+	.content-container {
+		width: calc(100% - 360px);
+		left: 360px;
+	}
+
+	.header {
+		margin-top: 25px;
+	}
+
+	.site-title {
+		width: 250px;
+		height: auto;
+	}
+
+	.header h1 {
+		font-size: 26px;
+		line-height: 38px;
+	}
+
+	.footer {
+		font-size: 12px;
+	}
+
+	.site-nav ul > li a {
+		font-size: 14px;
+	}
+
+	.section {
+		font-size: 16px;
+		line-height: 27px;
+	}
+
+	h2.section-title {
+		font-size: 24px;
+	}
+}
+
+@media all and (max-width: 768px) {
+	.header-container,
+	.content-container {
+		position: static;
+		width: 100%;
+	}
+
+	.header {
+		margin-top: 25px;
+		padding: 0 15px;
+	}
+
+	.header h1 {
+		font-weight: bold;
+		color: #fff;
+		font-size: 20px;
+		line-height: 22px;
+		text-align: center;
+	}
+
+	.navbar-header {
+		color: #fff;
+	}
+
+	.navbar-header button {
+		display: block;
+		width: 100%;
+		border: 1px solid #fff;
+		margin: 0 auto;
+	}
+
+	.section {
+		font-size: 14px;
+		text-align: justify;
+	}
+
+	h2.section-title {
+		font-size: 22px;
+		margin: 0 0 20px 0;
+		padding: 0 0 10px 0;
+		line-height: 30px;
+	}
+
+	ul.prizes > li strong {
+		display: block;
+		text-align: center;
+	}
+}

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Adhyaksa Jaya">
+    <meta name="description" content="Seminar- Informatics Festival 2016 - Universitas Atma Jaya Yogyakarta">
+	<title>Seminar - IFEST 2016</title>
+	<link rel="stylesheet" href="assets/bootstrap-sweetalert/lib/sweet-alert.css" type="text/css" media="all">
+	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" type="text/css" media="all">
+	<link rel="stylesheet" href="style.css" type="text/css" media="all">
+    <script type="text/javascript" src="assets/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="assets/bootstrap-sweetalert/lib/sweet-alert.min.js"></script>
+	<script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/SeatsCharts/jquery.seat-charts.css">
+	<link rel="stylesheet" type="text/css" href="assets/SeatsCharts/style.css">
+</head>
+
+<body>
+	<section class="header-container pull-left">
+		<header class="header">
+			<a class="site-title" href="seminar" title="Seminar IFEST 2016">
+				<img src="img/logo.png" width="200">
+			</a>
+			<h1>Seminar IFEST 2016</h1>
+			<nav class="site-nav navbar">
+				<div class="navbar-header">
+				    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				    	Menu
+				    </button>
+			    	</div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li><a class="menu" href="#about">Tentang</a></li>
+						<li><a class="menu" href="#registration">Pendaftaran</a></li>
+						<li><a href="http://regsys.ifest-uajy.com/seminar/client/dashboard">Area Peserta</a></li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+		<footer class="footer">
+			Copyright &copy; 2016 <a href="http://himaforka-uajy.org" target="_blank">Himaforka UAJY</a>. All rights reserved
+		</footer>
+	</section>
+	<section class="content-container pull-left">
+		<div class="site-content">
+			<div id="about" class="section">
+				<h2 class="section-title">Tentang</h2>
+
+				<img src="http://regsys.ifest-uajy.com/assets/seminar/poster-seminar.jpg" style="width: 100%;" />
+
+				<h3>Tema Acara</h3>
+				<p>Way To Make Success Startup</p>
+
+				<h3>Waktu</h3>
+				<p>Sabtu, 7 Mei 2016 pukul 09.30-15.00 WIB</p>
+
+				<h3>Tempat</h3>
+				<p>Auditorium Kampus 3 Universitas Atma Jaya Yogyakarta</p>
+
+				<h3>Tempat</h3>
+				<p>
+					Mahasiswa UAJY Rp 40.000,- (Seminar Kit, Makan Siang, Sertifikat, Snack)<br />
+					Umum Rp 60.000,- (Seminar Kit, Makan Siang, Sertifikat, Snack)
+				</p>
+			</div>
+			<div id="registration" class="section">
+				<h2 class="section-title">Pendaftaran</h2>
+				
+				<form id="register" action="http://regsys.ifest-uajy.com/api/seminar/register" method="POST">
+					<label for="seat_chart" style="margin-bottom: 11px;">Pilih posisi tempat duduk anda</label>
+					<div id="seat_chart">
+						<div class="front-indicator">Panggung</div>
+					</div>
+					<div style="clear: both;"></div>
+					<div class="form-group">
+						<label for="name">Nama</label>
+						<input id="name" type="text" name="name" class="form-control" maxlength="100" required />
+					</div>
+					<div class="form-group">
+						<label for="name">No. HP</label>
+						<input id="phone" type="text" name="phone" class="form-control" maxlength="15" required />
+					</div>
+					<div class="form-group">
+						<label for="name">Email</label>
+						<input id="email" type="email" name="email" class="form-control" maxlength="100" required />
+					</div>
+					<div class="form-group" id="origin">
+						<label for="origin">Asal</label><br/>
+						<input id="origin_in" type="radio" name="origin" value="Internal" checked required /> Internal / Mahasiswa UAJY<br/>
+						<input id="origin_eks" type="radio" name="origin" value="Eksternal" required /> Eksternal / Umum<br/>
+					</div>
+					<div id="form-origin">
+						<div class="form-group">
+							<label for="name">NPM</label>
+							<input id="npm" type="text" name="npm" class="form-control" maxlength="9" required />
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="password">Kata Sandi (Minimal 8 Karakter)</label>
+						<input id="password" type="password" name="password" class="form-control" maxlength="20" required />
+					</div>
+					<div class="form-group">
+						<label for="password_confirmation">Kata Sandi (konfirmasi)</label>
+						<input id="password_confirmation" type="password" name="password_confirmation" class="form-control" maxlength="20" required />
+					</div>
+					<button id="doRegister" type="submit" class="btn btn-success btn-block btn-lg">Daftar</button>
+					<input id="seat_name" type="hidden" name="seat_name" class="form-control" required />
+				</form>
+			</div>
+		</div>
+	</section>
+	<div class="clearfix"></div>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#register').validate({
+				rules: {
+					'phone': {
+						number: true
+					},
+					'npm': {
+						number: true
+					},
+					'password_confirmation': {
+						equalTo: '#password'
+					},
+				}
+			});
+			$('#register').submit(function(e){
+				if (!$('#seat_name').val()) {sweetAlert("Maaf!", "Silahkan pilih posisi tempat duduk anda!", "warning"); e.preventDefault();}
+			})
+		});
+		$('#origin > input[name="origin"]').change(function() {
+			switch($(this).val()){
+				case 'Internal':
+					var elemen = '<div class="form-group"><label for="name">NPM</label><input id="npm" type="text" name="npm" class="form-control" maxlength="9" required /></div>';
+					break;
+				case 'Eksternal':
+					var elemen = '<div class="form-group"><label for="job">Pekerjaan</label><input id="job" type="text" name="job" class="form-control" maxlength="30" required /></div><div class="form-group"><label for="instance">Instansi</label><input id="instance" type="text" name="instance" class="form-control" maxlength="30" required /></div>';
+					break;
+			}
+			$('#form-origin').empty().append(elemen);
+		});
+	</script>
+	
+	<script src="assets/SeatsCharts/jquery.seat-charts.min.js"></script>		
+	<script>
+		$(document).ready(function() {
+			
+			var sc = $('#seat_chart').seatCharts({
+				map: [
+					'eeeeeeeeee_eeeeeeeeee_eeeeeeeeee',
+					'eeeeeeeeee_eeeeeeeeee_eeeeeeeeee',
+					'eeeeeeeeee_eeeeeeeeee_eeeeeeeeee',
+					'eeeeeeeeee_eeeeeeeeee_eeeeeeeeee',
+					'eeeeeeeeee_eeeeeeeeee_eeeeeeeeee',
+					'eeeeeeeeee_eeeeeeeeee_eeeeeeeeee',
+					'eeeeeeeeee_eeeeeeeeee_eeeeeeeeee',
+					'eeeeeeeeee_eeeeeeeeee_eeeeeeeeee',
+					'eeeeeeeeee_eeeeeeeeee_eeeeeeeeee',
+				],
+				naming : {
+					top : false,
+					getLabel : function (character, row, column) {
+						if (column > 21)
+							return column - 2;
+						else
+							if (column > 10)
+								return column - 1;
+							else
+								return column;
+					},
+
+					rows: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'],
+					getId  : function(character, row, column) {
+						if (column > 21)
+							return row + (column - 2);
+						else
+							if (column > 10)
+								return row + (column - 1);
+							else
+								return row + column;
+					}
+				},
+				legend : {
+					node : $('#legend'),
+				    items : [
+						[ 'e', 'available',   'Tersedia'],
+						[ 'e', 'selected',   'Pilihan Anda'],
+						[ 'e', 'unavailable', 'Sudah Dipesan']
+				    ]					
+				},
+				click: function () {
+					if (this.status() == 'available') {
+						sc.find('selected').status('available');
+						$('#seat_name').val(this.node().attr('id'));
+						return 'selected';
+					} else if (this.status() == 'selected') {
+						$('#seat_name').val('');
+						return 'available';
+					} else if (this.status() == 'unavailable') {
+						return 'unavailable';
+					} else {
+						return this.style();
+					}
+				}
+			});
+
+			$.getJSON( "http://regsys.ifest-uajy.com/api/seminar/get-available-seat", function( data ) {
+			  var seat_name = ['A9','A10','A19','A20'];
+			  $.each( data, function( key, val ) {
+			  	$.each( val , function( key, val ) {
+			  		seat_name.push(val.seat_name);
+			  	});
+			  });
+			  sc.get(seat_name).status('unavailable');
+			});
+	});
+	
+	</script>
+</body>
