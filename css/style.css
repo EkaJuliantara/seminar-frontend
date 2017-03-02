@@ -1,0 +1,30 @@
+/* Default setting for font size, font family, bg color and text-align */
+body{
+  font-size: 15px;
+  font-family: 'CaviarDreams-Reguler';
+}
+
+section{
+  text-align: center;
+}
+
+/*set color for header and footer */
+#header,#footer{
+  background-color: #0a1a2e;
+}
+
+/*css for header ifest */
+.header-text{
+  font-family: 'BebasNeue-Reguler';
+  display: inline-block;
+  color: white;
+  font-size: 32px;
+  padding-top: 20px;
+  font-weight: normal;
+  margin-left: 10px;
+}
+
+.ifest-logo{
+  display: inline-block;
+  width: 50px;
+}
