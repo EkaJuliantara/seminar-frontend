@@ -14,4 +14,14 @@ $(document).ready(function() {
       $("#form-header").css({'margin-top':'0px'});
     }
   });
+
+  $('a[href^="#"]').on('click',function (e) {
+	    e.preventDefault();
+	    var target = this.hash,
+	    $target = $(target);
+      var scrollAmount = $target.offset().top - $("#header").height() + 16;
+	    $('html, body').stop().animate({
+	        scrollTop: scrollAmount
+	    }, 900);
+	});
 });
