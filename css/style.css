@@ -24,7 +24,6 @@
   src: url('../font/CaviarDreams.ttf');
 }
 
-
 /* Default setting for font size, font family, bg color and text-align */
 body{
   font-size: 15px;
@@ -43,7 +42,7 @@ section{
 }
 
 /*set padding for sections*/
-#speaker{
+#speaker,#information{
   padding-top: 40px;
   padding-bottom: 50px;
 }
@@ -127,7 +126,7 @@ section{
 }
 
 .navigation>ul{
-  padding-top: 18px;
+  padding-top: 14px;
   margin-bottom: 0px;
 }
 
@@ -160,6 +159,7 @@ ul.dropdown-list{
 
 /* css for information section */
 #information{
+  background-color: #540d0a;
 }
 
 /*css for footer */
