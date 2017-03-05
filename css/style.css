@@ -2,6 +2,7 @@
 body{
   font-size: 15px;
   font-family: 'CaviarDreams-Reguler';
+  background-color: black;
 }
 
 section{
@@ -11,6 +12,18 @@ section{
 /*set color for header and footer */
 #header,#footer{
   background-color: #0a1a2e;
+}
+
+/*set padding for sections*/
+#speaker{
+  padding-top: 40px;
+  padding-bottom: 50px;
+}
+
+/*css for title section font*/
+.section-title,.content-title{
+  font-family: 'BebasNeue-Reguler';
+  font-weight: normal;
 }
 
 /*css for header ifest */
@@ -33,6 +46,7 @@ section{
 .theme-title{
   font-family: 'BebasNeue-Reguler';
   font-weight: normal;
+  color: white;
 }
 
 #theme{
@@ -43,6 +57,9 @@ section{
   background-position: center;
 }
 
+.theme-logo{
+  width: 280px;
+}
 /*css for menu bar */
 #menu{
   z-index: 11;
@@ -72,7 +89,7 @@ section{
 
 .text-link{
   color: white;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .menu-link{
@@ -82,7 +99,7 @@ section{
 }
 
 .navigation>ul{
-  padding-top: 8px;
+  padding-top: 18px;
   margin-bottom: 0px;
 }
 
@@ -106,4 +123,15 @@ ul.dropdown-list{
 #dropdown>img{
   width: 25px;
   margin-top: 12px;
+}
+
+/* css for speaker section */
+#speaker{
+  color: white;
+  margin-bottom: 20px;
+}
+
+/* css for information section */
+#information{
+    color: white;
 }
