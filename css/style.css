@@ -163,6 +163,12 @@ ul.dropdown-list{
 }
 
 /*css for registration section */
+#registration{
+  background-position: center;
+  background-image: url('../main-background.jpg');
+  background-attachment: fixed;
+}
+
 .registration-btn {
   text-decoration: none;
   text-transform: uppercase;
