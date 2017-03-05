@@ -1,3 +1,30 @@
+/* Import font face */
+@font-face {
+  font-family: 'Lato-Requler';
+  src: url('../font/Lato-Reguler.ttf');
+}
+
+@font-face {
+  font-family: 'Lato-Italic';
+  src: url('../font/Lato-Italic.ttf');
+}
+
+@font-face {
+  font-family: 'Lato-Bold';
+  src: url('../font/Lato-Bold.ttf');
+}
+
+@font-face{
+  font-family: 'BebasNeue-Reguler';
+  src: url('../font/BebasNeue-Regular.ttf');
+}
+
+@font-face{
+  font-family: 'CaviarDreams-Reguler';
+  src: url('../font/CaviarDreams.ttf');
+}
+
+
 /* Default setting for font size, font family, bg color and text-align */
 body{
   font-size: 15px;
@@ -6,6 +33,7 @@ body{
 }
 
 section{
+  color: white;
   text-align: center;
 }
 
@@ -127,11 +155,17 @@ ul.dropdown-list{
 
 /* css for speaker section */
 #speaker{
-  color: white;
   margin-bottom: 20px;
 }
 
 /* css for information section */
 #information{
-    color: white;
+}
+
+/*css for footer */
+#footer{
+  padding-top: 20px;
+}
+.icon-img{
+  width: 50px;
 }
