@@ -24,4 +24,11 @@ $(document).ready(function() {
 	        scrollTop: scrollAmount
 	    }, 900);
 	});
+
+  window.sr = ScrollReveal({ reset: true });
+  sr.reveal('#theme .container');
+  sr.reveal('#information .container');
+  sr.reveal('#speaker .container');
+  sr.reveal('#registration .container');
+  sr.reveal('#footer .container');
 });
