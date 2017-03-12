@@ -195,3 +195,48 @@ ul.dropdown-list{
 .icon-img{
   width: 50px;
 }
+
+/*form-header section*/
+#form-header{
+  font-size: 13px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.breadcrumb-list>li{
+  display: inline-block;
+  list-style:none;
+}
+
+.breadcrumb-list{
+  display: block;
+  float: right;
+}
+
+.form-title{
+  display: block;
+  float: left;
+  font-size: 30px;
+}
+
+.form-row>label{
+  text-align: left;
+}
+
+.form-box{
+  width: 75%;
+}
+
+.form-row>input[type="password"],.form-row>input[type="text"],.form-row>input[type="email"]{
+  width:100%;
+}
+
+.form-row{
+  text-align: left;
+}
+
+button{
+  height: auto;
+  background: #79281e;
+  color: #fff;
+}
