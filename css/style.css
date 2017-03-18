@@ -28,7 +28,7 @@
 body{
   font-size: 15px;
   font-family: 'CaviarDreams-Reguler';
-  background-color: black;
+  background-color: #0a1a2e;
 }
 
 section{
@@ -37,8 +37,12 @@ section{
 }
 
 /*set color for header and footer */
-#header,#footer{
+#header{
   background-color: #0a1a2e;
+}
+
+#footer{
+  background-color: #333333;
 }
 
 /*set padding for sections*/
@@ -239,4 +243,17 @@ button{
   height: auto;
   background: #79281e;
   color: #fff;
+}
+
+/*css for login form*/
+#login-form{
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+
+.columns>.seminar-logo{
+  padding-top: 50px;
+  margin-bottom: 10px;
+  width: 30%;
 }
