@@ -30,7 +30,8 @@ $(document).ready(function() {
   window.sr = ScrollReveal({ reset: true });
   sr.reveal('#theme .container');
   sr.reveal('#information .container');
-  sr.reveal('#speaker .container');
+  sr.reveal('#speaker .columns');
   sr.reveal('#registration .container');
   sr.reveal('#footer .container');
+  sr.reveal('#benefit .container');
 });

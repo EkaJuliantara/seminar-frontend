@@ -28,7 +28,7 @@
 body{
   font-size: 15px;
   font-family: 'CaviarDreams-Reguler';
-  background-color: #0a1a2e;
+  background: url('../img/stardust.png') #0a1a2e fixed;
 }
 
 section{
@@ -37,9 +37,6 @@ section{
 }
 
 /*set color for header and footer */
-#header{
-  background-color: #0a1a2e;
-}
 
 #footer{
   background-color: #333333;
@@ -78,14 +75,29 @@ section{
   font-family: 'BebasNeue-Reguler';
   font-weight: normal;
   color: white;
+  background: #79281e;
+  padding: 10px 0;
+  margin: 0 auto;
+}
+
+h1.theme-title {
+  width: 50%;
+}
+
+h2.theme-title {
+  width: 75%;
 }
 
 #theme{
   padding-top: 80px;
   padding-bottom: 150px;
-  background-image: url('../main-background.jpg');
+  background: url('../main-background.jpg') fixed;
   background-size: cover;
   background-position: center;
+}
+
+#theme img{
+  margin-bottom: 20px;
 }
 
 .theme-logo{
@@ -161,9 +173,43 @@ ul.dropdown-list{
   margin-bottom: 20px;
 }
 
+#speaker h4 {
+  background: #79281e;
+}
+
+#speaker img {
+  margin-bottom: 20px;
+}
+
+/* css for benefit section */
+#benefit{
+  background-color: #fae0a4;
+  padding: 30px 0;
+}
+
+#benefit h1 {
+  color: #0a1a2e;
+  text-align: left;
+  text-transform: uppercase;
+  padding: 60px 0;
+}
+
+#benefit .vr {
+  text-align: right;
+}
+
+#benefit .vr img {
+  width: 200px;
+}
+
 /* css for information section */
 #information{
   background-color: #540d0a;
+}
+
+#information table {
+  width: 65%;
+  margin: 0 auto;
 }
 
 /*css for registration section */
@@ -194,7 +240,7 @@ ul.dropdown-list{
 
 /*css for footer */
 #footer{
-  padding-top: 20px;
+  padding: 30px 0;
 }
 .icon-img{
   width: 50px;
