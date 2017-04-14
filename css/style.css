@@ -287,6 +287,7 @@ ul.dropdown-list{
 
 .form-row>input[type="password"],.form-row>input[type="text"],.form-row>input[type="email"]{
   width:100%;
+  color: #0a1a2e;
 }
 
 .form-row{
