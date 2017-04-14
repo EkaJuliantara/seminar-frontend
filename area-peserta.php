@@ -32,7 +32,7 @@
         <div class="container">
             <div class="row">
                 <div class="twelve columns">
-                  <a href="http://ifest-uajy.com/i2c" class="logo">
+                  <a href="index.html" class="logo">
                       <img class="i2c-logo" src="img/logo.png" alt="" />
                   </a>
                   <a class="btn logout" href="logout.php">Log Out</a>
@@ -78,7 +78,7 @@
                          Status
                        </th>
                        <th>
- 					                  	Action
+ 					              Action
                        </th>
                      </tr>
                    </thead>
@@ -98,7 +98,7 @@
                        </td>
                        <td>
                          <button ng-show="dataPeserta.media_id == NULL" ng-click="updateDetail(dataPeserta.id)" type="button" class="btn update-detail {{ dataPeserta.id }}">Simpan</button>
-                         <button ng-show="dataPeserta.media_id != NULL && dataPeserta.status == 0" ng-click="destroyDetail(dataPeserta.id)" type="button" class="btn delete-detail {{ dataPeserta.id }}">Hapus</button>
+                         <button ng-show="dataPeserta.media_id != NULL && dataPeserta.status == NULL" ng-click="destroyDetail(dataPeserta.id)" type="button" class="btn delete-detail {{ dataPeserta.id }}">Hapus</button>
                        </td>
                      </tr>
                    </tbody>
@@ -116,11 +116,10 @@
                 <h5>Pengumuman</h5>
               </div>
               <div class="box-body">
+                <p>Silakan melakukan pembayaran pendaftaran seminar sebesar Rp50.000</p>
+                <p>Untuk pembayaran dapat dilakukan langsung ke stand IFest di Lobby Fakultas Teknologi Industri, Kampus 3, Gedung Bonaventura, Jalan Babarsari 43 Yogyakarta atau melalui transfer ke <strong> Bank BCA dengan nomor rekening 0373749971 atas nama Grelly Lucia Yovellia Londo.</strong></p>
                 <p>Kecepatan koneksi internet mempengaruhi cepatnya data ditampilkan. Apabila data belum tertampil, silakan muat ulang halaman.</p>
-                <p>Kami menyarankan menggunakan browser Mozilla Firefox</p>
-                <p>Diberitahukan kepada seluruh perserta i2c kategori ide aplikasi mobile, bahwa batas pengumpulan proposal diundur sampai tanggal 8 April 2017. Bagi peserta yang sudah mendaftar jangan lupa juga untuk melengkapi data-data diri ya</p>
-                <p>Untuk kategori FTI Promotional Video, batas pengumpulan video juga diundur sampai tanggal 28 April 2017. Pada tanggal 19-27 April 2017, peserta sudah diijinkan untuk mengambil video di seluruh Lab. FTI dengan membawa surat pernyataan peserta yang bisa diambil di stand iFest atau bisa meminta surat tersebut ke panitia iFest.</p>
-                <p>Untuk mengambil surat pernyataan peserta ini, peserta harus melakukan pelunasan terlebih dahulu dan membawa bukti pembayarannya pada saat meminta surat.</p>
+                <p>Kami menyarankan menggunakan browser Mozilla Firefox</p>                
               </div>
             </div>
           </div>
@@ -171,6 +170,13 @@
     $scope.getTeam = function() {
       $http.get("http://api.ifest-uajy.com/v1/seminar/"+$scope.idTeam).then(function (response) {
         $scope.dataPeserta = response.data.data;
+
+        if ($scope.dataPeserta.media_id) {
+          $http.get("http://api.ifest-uajy.com/v1/media/"+$scope.dataPeserta.media_id).then(function (response) {
+            $scope.dataPeserta.payment_name = response.data.data.file_name;
+          });
+        }
+
       });
     }
 
@@ -216,6 +222,8 @@
      $scope.dataDetail['media_id'] = null;
      $scope.dataDetail['status'] = null;
 
+     $('.btn.delete-detail.'+id).text('Menghapus...');
+
      $http({
        method  : 'PATCH',
        url     : 'http://api.ifest-uajy.com/v1/seminar/'+$scope.idTeam+'/detail',
@@ -224,10 +232,9 @@
       })
      .then(function(data) {
        $scope.getTeam();
-       $('.btn.update-detail.'+id).text('Simpan');
+       $('.btn.delete-detail.'+id).text('Hapus');
      });
     }
-
 
     $scope.getTeam();
   });
