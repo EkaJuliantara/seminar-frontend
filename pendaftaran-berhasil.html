@@ -76,58 +76,21 @@
     </div>
   </section>
 
-  <section id="form-header">
-    <div class="container">
-        <div class="twelve columns">
-            <div class="form-title">
-                Pendaftaran Seminar Nasional
-            </div>
-            <ul class="breadcrumb-list">
-              <li><a href="index.html">Home</a></li> >
-              <li>Pendaftaran</li>
-            </ul>
-        </div>
-    </div>
-  </section>
-
-  <section ng-app="registerApp" ng-controller="registerCtrl" id="form">
-    <div class="container">
-      <div class="row">
+  <section id="succes-content">
+      <div class="container">
           <div class="twelve columns">
-            <div id="registration-form">
-                <div class="content">
-                    <div class="form-box">
-                      <form ng-submit="registerSubmit()" class="form-registration">
-                          <div class="form-row">
-                              <label>Nama</label>
-                              <input ng-model="formData.name" type="text" name="name" value="" required="">
-                            <span ng-show="errors.name[0]" class="error-msg">{{errors.name[0]}}</span>
-                          </div>
-                          <div class="form-row">
-                              <label>Email</label>
-                              <input ng-model="formData.email" type="email" name="email" value="" required="">
-                            <span ng-show="errors.email[0]" class="error-msg">{{errors.email[0]}}</span>
-                          </div>
-                          <div class="form-row">
-                              <label>No Telepon</label>
-                              <input ng-model="formData.phone" type="text" name="phone" value="" required="">
-                          </div>
-                          <div class="form-row">
-                              <label>Kata Sandi</label>
-                               <input ng-model="formData.password" type="password" name="password" value="" required="">
-                          </div>
-                          <div class="form-row">
-                            <button ng-disabled="button == 'MENDAFTAR...'" type="submit">{{ button }}</button>
-                        </div>
-                        <span ng-show="errors.ise">{{ errors.ise }}</span>
-                      </form>
-                    </div>
-                </div>
+            <div class="content-succes">
+              <h1>Pendaftaran Berhasil</h1>
+              <p>Selamat anda telah berhasil terdaftar sebagai peserta Seminar.<br>
+              Silakan melihat dan melengkapi data kepesertaan anda melalui tautan berikut.</p>
+              <a href="http://ifest-uajy.com/seminar/area-peserta.php">Area Peserta</a>
+              <br><br>
+              <p>Terima Kasih.</p>
             </div>
           </div>
-        </div>
-    </div>
+      </div>
   </section>
+
 
 
   <section id="footer">
@@ -152,74 +115,7 @@
 <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="bower_components/scrollreveal/dist/scrollreveal.min.js"></script>
 <script type="text/javascript" src="js/animation.js"></script>
-<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
 
-<script>
-
-function httpInterceptor() {
-  return {
-    request: function(config) {
-      return config;
-    },
-
-    requestError: function(config) {
-      return config;
-    },
-
-    response: function(res) {
-      return res;
-    },
-
-    responseError: function(res) {
-      return res;
-    }
-  }
-}
-
-var registerApp = angular.module("registerApp", [])
-  .factory('httpInterceptor', httpInterceptor)
-  .config(function($httpProvider) {
-    $httpProvider.interceptors.push('httpInterceptor');
-  });
-
-registerApp.controller("registerCtrl", function($scope, $http, $window) {
-
-  $scope.formData = {};
-  $scope.errors = {};
-
-  $scope.button = "DAFTAR";
-
-  $scope.registerSubmit = function () {
-
-    $scope.errors = {};
-
-    $scope.button = "MENDAFTAR...";
-
-    $http({
-      method  : 'POST',
-      url     : 'http://api.ifest-uajy.com/v1/seminar',
-      data    : $.param($scope.formData),
-      headers : { 'Content-Type': 'application/x-www-form-urlencoded' }
-     })
-    .then(function(response) {
-      switch (response.status) {
-        case 400:
-          $scope.errors = response.data.errors;
-          $scope.button = "DAFTAR";
-        break;
-        case 500:
-          $scope.errors.ise = "Mohon maaf terdapat kesalahan di bagian server.";
-          $scope.button = "DAFTAR";
-          break;
-        default:
-          $window.location.href = 'pendaftaran-berhasil.html';
-          $scope.button = "DAFTAR";
-      }
-    });
-  }
-});
-
-</script>
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>

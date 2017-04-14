@@ -1,3 +1,9 @@
+<?php
+  error_reporting(0);
+  ob_start();
+  session_start();
+  if (!$_SESSION['seminar']['id']) {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,10 +18,6 @@
   <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- FONT
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-
 
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -50,23 +52,23 @@
     <div class="container">
       <div class="row">
         <div class="twelve columns">
-            <a href="index.html#header" class="logo">
+            <a href="#header" class="logo">
                 <img class="i2c-logo" src="img/logo.png" alt="" />
             </a>
             <nav class="navigation">
                 <ul>
-                  <li class="nav"><a class="menu-link" href="index.html#speaker"><span class="text-link">PEMBICARA</span></a></li>
-                  <li class="nav"><a class="menu-link" href="index.html#benefit"><span class="text-link">INFORMASI</span></a></li>
-                  <li class="nav"><a class="menu-link" href="index.html#registration"><span class="text-link">PENDAFTARAN</span></a></li>
+                  <li class="nav"><a class="menu-link" href="#speaker"><span class="text-link">PEMBICARA</span></a></li>
+                  <li class="nav"><a class="menu-link" href="#benefit"><span class="text-link">INFORMASI</span></a></li>
+                  <li class="nav"><a class="menu-link" href="#registration"><span class="text-link">PENDAFTARAN</span></a></li>
                   <li class="nav"><a class="menu-link" href="area-peserta.php"><span class="text-link">AREA PESERTA</span></a></li>
                 </ul>
             </nav>
             <div class="dropdown">
                 <button type="button" name="button" id="dropdown"><img src="img/menu-icon.png" alt=""></button>
                 <ul class="dropdown-list">
-                  <li class="nav"><a class="menu-link" href="index.html#speaker"><span class="text-link">PEMBICARA</span></a></li>
-                  <li class="nav"><a class="menu-link" href="index.html#benefit"><span class="text-link">INFORMASI</span></a></li>
-                  <li class="nav"><a class="menu-link" href="index.html#registration"><span class="text-link">PENDAFTARAN</span></a></li>
+                  <li class="nav"><a class="menu-link" href="#speaker"><span class="text-link">PEMBICARA</span></a></li>
+                  <li class="nav"><a class="menu-link" href="#benefit"><span class="text-link">INFORMASI</span></a></li>
+                  <li class="nav"><a class="menu-link" href="#registration"><span class="text-link">PENDAFTARAN</span></a></li>
                   <li class="nav"><a class="menu-link" href="area-peserta.php"><span class="text-link">AREA PESERTA</span></a></li>
                 </div>
                 </ul>
@@ -76,67 +78,39 @@
     </div>
   </section>
 
-  <section id="form-header">
+  <section id="theme" ng-app="loginApp" ng-controller="loginCtrl">
     <div class="container">
-        <div class="twelve columns">
-            <div class="form-title">
-                Pendaftaran Seminar Nasional
+        <div class="row">
+            <div class="twelve columns">
+              <img src="img/logo.png" alt=""/>
+              <h1 class="theme-title">SEMINAR NASIONAL</h1>
+              <div id="login-form">
+                  <form ng-submit="loginSubmit()" class="form-login">
+                      <div class="form-row">
+                          <label>Email</label>
+                          <input ng-model="formData.email" type="email" name="email" value="" required="">
+                      </div>
+                      <div class="form-row">
+                          <label>Kata Sandi</label>
+                          <input ng-model="formData.password" type="password" name="password" value="" required="">
+                      </div>
+                      <div class="form-row">
+                          <button ng-disabled="button == 'MASUK...'" type="submit">{{ button }}</button>
+                      </div>
+                      <span ng-show="errors">{{ errors }}</span>
+                  </form>
+              </div>
             </div>
-            <ul class="breadcrumb-list">
-              <li><a href="index.html">Home</a></li> >
-              <li>Pendaftaran</li>
-            </ul>
         </div>
     </div>
   </section>
-
-  <section ng-app="registerApp" ng-controller="registerCtrl" id="form">
-    <div class="container">
-      <div class="row">
-          <div class="twelve columns">
-            <div id="registration-form">
-                <div class="content">
-                    <div class="form-box">
-                      <form ng-submit="registerSubmit()" class="form-registration">
-                          <div class="form-row">
-                              <label>Nama</label>
-                              <input ng-model="formData.name" type="text" name="name" value="" required="">
-                            <span ng-show="errors.name[0]" class="error-msg">{{errors.name[0]}}</span>
-                          </div>
-                          <div class="form-row">
-                              <label>Email</label>
-                              <input ng-model="formData.email" type="email" name="email" value="" required="">
-                            <span ng-show="errors.email[0]" class="error-msg">{{errors.email[0]}}</span>
-                          </div>
-                          <div class="form-row">
-                              <label>No Telepon</label>
-                              <input ng-model="formData.phone" type="text" name="phone" value="" required="">
-                          </div>
-                          <div class="form-row">
-                              <label>Kata Sandi</label>
-                               <input ng-model="formData.password" type="password" name="password" value="" required="">
-                          </div>
-                          <div class="form-row">
-                            <button ng-disabled="button == 'MENDAFTAR...'" type="submit">{{ button }}</button>
-                        </div>
-                        <span ng-show="errors.ise">{{ errors.ise }}</span>
-                      </form>
-                    </div>
-                </div>
-            </div>
-          </div>
-        </div>
-    </div>
-  </section>
-
 
   <section id="footer">
       <div class="container">
         <div class="row">
             <div class="six columns">
                 <h2>Contact Person</h2>
-                <p>+62 817 5066 108 (Andreas)</p>
-                <p>+62 878 3992 2155 (Dio)</p>
+                <p>+62 838 4040 2240 (Egik)</p>
             </div>
             <div class="six columns">
                 <h2>Follow Us</h2>
@@ -156,7 +130,7 @@
 
 <script>
 
-function httpInterceptor() {
+  function httpInterceptor() {
   return {
     request: function(config) {
       return config;
@@ -176,28 +150,28 @@ function httpInterceptor() {
   }
 }
 
-var registerApp = angular.module("registerApp", [])
+var loginApp = angular.module("loginApp", [])
   .factory('httpInterceptor', httpInterceptor)
   .config(function($httpProvider) {
     $httpProvider.interceptors.push('httpInterceptor');
   });
 
-registerApp.controller("registerCtrl", function($scope, $http, $window) {
+  loginApp.controller("loginCtrl", function($scope, $http, $window) {
 
   $scope.formData = {};
-  $scope.errors = {};
+  $scope.errors = "";
 
-  $scope.button = "DAFTAR";
+  $scope.button = "MASUK";
 
-  $scope.registerSubmit = function () {
+  $scope.loginSubmit = function () {
 
-    $scope.errors = {};
+    $scope.errors = "";
 
-    $scope.button = "MENDAFTAR...";
+    $scope.button = "MASUK...";
 
     $http({
       method  : 'POST',
-      url     : 'http://api.ifest-uajy.com/v1/seminar',
+      url     : 'http://api.ifest-uajy.com/v1/seminar/login',
       data    : $.param($scope.formData),
       headers : { 'Content-Type': 'application/x-www-form-urlencoded' }
      })
@@ -205,15 +179,23 @@ registerApp.controller("registerCtrl", function($scope, $http, $window) {
       switch (response.status) {
         case 400:
           $scope.errors = response.data.errors;
-          $scope.button = "DAFTAR";
+          $scope.button = "MASUK";
         break;
         case 500:
           $scope.errors.ise = "Mohon maaf terdapat kesalahan di bagian server.";
-          $scope.button = "DAFTAR";
+          $scope.button = "MASUK";
           break;
         default:
-          $window.location.href = 'pendaftaran-berhasil.html';
-          $scope.button = "DAFTAR";
+          $scope.button = "MASUK...";
+
+          $http({
+            method  : 'POST',
+            url     : 'proses-login.php',
+            data    : $.param({ id: response.data.data.id }),
+            headers : { 'Content-Type': 'application/x-www-form-urlencoded' }
+          }).then(function(data) {
+            $window.location.href = 'area-peserta.php';
+          });
       }
     });
   }
@@ -224,3 +206,8 @@ registerApp.controller("registerCtrl", function($scope, $http, $window) {
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
 </html>
+<?php
+  }else{
+    header("location: area-peserta.php");
+  }
+?>

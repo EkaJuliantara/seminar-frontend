@@ -1,0 +1,121 @@
+/* Import font face */
+@font-face {
+  font-family: 'Lato-Requler';
+  src: url('../font/Lato-Reguler.ttf');
+}
+
+@font-face {
+  font-family: 'Lato-Italic';
+  src: url('../font/Lato-Italic.ttf');
+}
+
+@font-face {
+  font-family: 'Lato-Bold';
+  src: url('../font/Lato-Bold.ttf');
+}
+
+@font-face{
+  font-family: 'BebasNeue-Reguler';
+  src: url('../font/BebasNeue-Regular.ttf');
+}
+
+@font-face{
+  font-family: 'CaviarDreams-Reguler';
+  src: url('../font/CaviarDreams.ttf');
+}
+
+/* Default setting for font size, font family, bg color and text-align */
+.container {
+
+}
+
+body{
+  font-size: 15px;
+  font-family: 'CaviarDreams-Reguler';
+}
+
+section{
+  text-align: center;
+}
+
+/*Css for header section */
+#header{
+  background-color: lightblue;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.i2c-logo{
+  float: left;
+  width: 50px;
+}
+
+.btn{
+  background: #2980b9;
+    color: #fff !important;
+    padding: 0 10px;
+    height: auto;
+    line-height: 30px;
+}
+
+.btn.delete-member, .btn.delete-detail {
+  background: #dd4b39;
+}
+
+.logout{
+  color: white;
+  background-color: #F22613;
+  float: right;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.update{
+  float: left;
+}
+
+.box{
+  border-radius: 10px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border: 1px solid lightgray;
+  padding: 15px;
+}
+
+table {
+  width: 100%;
+}
+
+#member-list td:nth-child(2) {
+  width: 35%;
+}
+
+input {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+input[type="file"] {
+  max-width: 75%;
+}
+
+.label {
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+}
+
+.label.Tidak.Aktif {
+  background-color: #dd4b39 !important;
+}
+
+.label.Aktif {
+  background-color: #00a65a !important;
+}
