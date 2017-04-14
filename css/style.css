@@ -177,8 +177,16 @@ ul.dropdown-list{
   background: #79281e;
 }
 
-#speaker img {
+#speaker .pic {
+  margin: auto;
   margin-bottom: 20px;
+  width: 200px;
+  height: 200px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  border-radius: 100%;
+  background-color: #fff;
+
 }
 
 /* css for benefit section */
