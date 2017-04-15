@@ -117,7 +117,7 @@ h2.theme-title {
   float: left;
 }
 
-.i2c-logo{
+.seminar-logo{
   width: 50px;
 }
 
@@ -148,6 +148,7 @@ h2.theme-title {
 
 .dropdown{
   display: none;
+  text-align: center;
 }
 
 ul.dropdown-list{
@@ -315,4 +316,79 @@ button{
 
 #login-form,#succes-content{
   margin-top: 30px;
+}
+
+@media screen and (max-width: 890px) {
+  .seminar-logo{
+    width: 75px;
+  }
+  nav{
+    display: none;
+  }
+  .dropdown{
+    display: block;
+  }
+  .dropdown-nav{
+    width: 100%;
+    float: left;
+  }
+  .dropdown-list{
+    width: 100%;
+    float: right;
+  }
+  .text-link{
+    font-size: 15px;
+  }
+  .columns>.seminar-logo{
+    margin-top: 50px;
+    margin-bottom: 10px;
+    width: 210px;
+  }
+  #login-form{
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 549px) {
+  .four>.big,.big{
+    width: 50%;
+  }
+  .content-text{
+    font-size: 15px;
+  }
+  .registration-btn{
+    font-size: 16px;
+    width: 50%;
+  }
+  #login-form{
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 749px, max-width: 890px) {
+  .seminar-logo{
+    width: 35px;
+  }
+  .navigation>ul{
+    padding-top: 0px;
+  }
+}
+
+
+@media screen and (min-width: 996px) {
+  .content-text{
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 1051px) {
+  .content-text{
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 1139px) {
+  .content-text{
+    font-size: 16px;
+  }
 }

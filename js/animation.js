@@ -34,4 +34,11 @@ $(document).ready(function() {
   sr.reveal('#registration .container');
   sr.reveal('#footer .container');
   sr.reveal('#benefit .container');
+
+  $("#dropdown").on('click',function(){
+    $("ul.dropdown-list").slideToggle();
+  });
+  $("ul.dropdown-list").on('click',function(){
+    $("ul.dropdown-list").slideToggle();
+  });
 });

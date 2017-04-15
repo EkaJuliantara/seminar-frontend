@@ -33,7 +33,7 @@
             <div class="row">
                 <div class="twelve columns">
                   <a href="index.html" class="logo">
-                      <img class="i2c-logo" src="img/logo.png" alt="" />
+                      <img class="seminar-logo" src="img/logo.png" alt="" />
                   </a>
                   <a class="btn logout" href="logout.php">Log Out</a>
                 </div>
@@ -119,7 +119,7 @@
                 <p>Silakan melakukan pembayaran pendaftaran seminar sebesar Rp50.000</p>
                 <p>Untuk pembayaran dapat dilakukan langsung ke stand IFest di Lobby Fakultas Teknologi Industri, Kampus 3, Gedung Bonaventura, Jalan Babarsari 43 Yogyakarta atau melalui transfer ke <strong> Bank BCA dengan nomor rekening 0373749971 atas nama Grelly Lucia Yovellia Londo.</strong></p>
                 <p>Kecepatan koneksi internet mempengaruhi cepatnya data ditampilkan. Apabila data belum tertampil, silakan muat ulang halaman.</p>
-                <p>Kami menyarankan menggunakan browser Mozilla Firefox</p>                
+                <p>Kami menyarankan menggunakan browser Mozilla Firefox</p>
               </div>
             </div>
           </div>
