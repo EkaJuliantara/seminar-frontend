@@ -1,5 +1,5 @@
-var base_url = "http://127.0.0.1:8000/v1/seminar/";
-var media_url = "http://127.0.0.1:8000/v1/media/";
+var base_url = "http://api.ifest-uajy.com/v1/seminar/";
+var media_url = "http://api.ifest-uajy.com/v1/media/";
 
 function httpInterceptor() {
   return {
