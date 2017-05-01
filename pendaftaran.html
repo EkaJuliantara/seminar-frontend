@@ -152,73 +152,8 @@
 <script type="text/javascript" src="bower_components/scrollreveal/dist/scrollreveal.min.js"></script>
 <script type="text/javascript" src="js/animation.js"></script>
 <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="js/seminarApp.js"></script>
 
-<script>
-
-function httpInterceptor() {
-  return {
-    request: function(config) {
-      return config;
-    },
-
-    requestError: function(config) {
-      return config;
-    },
-
-    response: function(res) {
-      return res;
-    },
-
-    responseError: function(res) {
-      return res;
-    }
-  }
-}
-
-var registerApp = angular.module("registerApp", [])
-  .factory('httpInterceptor', httpInterceptor)
-  .config(function($httpProvider) {
-    $httpProvider.interceptors.push('httpInterceptor');
-  });
-
-registerApp.controller("registerCtrl", function($scope, $http, $window) {
-
-  $scope.formData = {};
-  $scope.errors = {};
-
-  $scope.button = "DAFTAR";
-
-  $scope.registerSubmit = function () {
-
-    $scope.errors = {};
-
-    $scope.button = "MENDAFTAR...";
-
-    $http({
-      method  : 'POST',
-      url     : 'http://api.ifest-uajy.com/v1/seminar',
-      data    : $.param($scope.formData),
-      headers : { 'Content-Type': 'application/x-www-form-urlencoded' }
-     })
-    .then(function(response) {
-      switch (response.status) {
-        case 400:
-          $scope.errors = response.data.errors;
-          $scope.button = "DAFTAR";
-        break;
-        case 500:
-          $scope.errors.ise = "Mohon maaf terdapat kesalahan di bagian server.";
-          $scope.button = "DAFTAR";
-          break;
-        default:
-          $window.location.href = 'pendaftaran-berhasil.html';
-          $scope.button = "DAFTAR";
-      }
-    });
-  }
-});
-
-</script>
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>

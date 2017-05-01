@@ -95,6 +95,10 @@ input {
   margin-bottom: 0;
 }
 
+input[type="radio"] {
+  width: auto;
+}
+
 input[type="file"] {
   max-width: 75%;
 }

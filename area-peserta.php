@@ -50,25 +50,36 @@
 
               <div>
                 <h5>Data Peserta</h5>
-	              <table>
-	                <tr>
-	                  <th>Nama</th>
-	                  <td>{{ dataPeserta.name }}</td>
-	                </tr>
-	                <tr>
-	                  <th>Email</th>
-	                  <td>{{ dataPeserta.email }}</td>
-	                </tr>
-	                <tr>
-	                  <th>No. HP</th>
-	                  <td>{{ dataPeserta.phone }}</td>
-	                </tr>
-	              </table>
+                <form ng-show="dataPesertaLoaded" ng-submit="updateTeam()">
+                  <table>
+                    <tr>
+                      <th>Nama</th>
+                      <td><input ng-model="dataPeserta.name" type="text" name="name" required /></td>
+                    </tr>
+                    <tr>
+                      <th>Email</th>
+                      <td><input ng-model="dataPeserta.email" type="email" name="email" required /></td>
+                    </tr>
+                    <tr>
+                      <th>No. HP</th>
+                      <td><input ng-model="dataPeserta.phone" type="text" name="phone" required /></td>
+                    </tr>
+                    <tr>
+                      <th>Vegetarian</th>
+                      <td>
+                        <input ng-model="dataPeserta.vegetarian" type="radio" name="vegetarian" ng-value="1" /> Iya
+                        <input ng-model="dataPeserta.vegetarian" type="radio" name="vegetarian" ng-value="0" /> Tidak
+                      </td>
+                    </tr>
+                  </table>
+                  <button type="submit" class="btn">{{ button }}</button>
+                </form>
+                <p ng-hide="dataPesertaLoaded">Sedang mengambil data dari server. Mohon tunggu sebentar ya...</p>
               </div>
 
                 <div>
                  <h5>Bukti Pembayaran</h5>
-                 <table class="table">
+                 <table ng-show="dataPesertaLoaded" class="table">
                    <thead>
                      <tr>
                        <th style="width: 150px;">
@@ -103,7 +114,7 @@
                      </tr>
                    </tbody>
                  </table>
-
+                 <p ng-hide="dataPesertaLoaded">Sedang mengambil data dari server. Mohon tunggu sebentar ya...</p>
                 </div>
 
                 <br>
@@ -135,113 +146,7 @@
 <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
 <script type="text/javascript" src="bower_components/ng-file-upload-shim/ng-file-upload-shim.min.js"></script>
 <script type="text/javascript" src="bower_components/ng-file-upload/ng-file-upload.min.js"></script>
-
-<script>
-  function httpInterceptor() {
-    return {
-      request: function(config) {
-        return config;
-      },
-
-      requestError: function(config) {
-        return config;
-      },
-
-      response: function(res) {
-        return res;
-      },
-
-      responseError: function(res) {
-        return res;
-      }
-    }
-  }
-
-  var app = angular.module('seminarApp', ['ngFileUpload'])
-    .factory('httpInterceptor', httpInterceptor)
-    .config(function($httpProvider) {
-      $httpProvider.interceptors.push('httpInterceptor');
-    });
-
-  app.controller('dataIndex', function($scope, $http, $timeout, Upload) {
-
-   $scope.dataDetail = {};
-
-    $scope.getTeam = function() {
-      $http.get("http://api.ifest-uajy.com/v1/seminar/"+$scope.idTeam).then(function (response) {
-        $scope.dataPeserta = response.data.data;
-
-        if ($scope.dataPeserta.media_id) {
-          $http.get("http://api.ifest-uajy.com/v1/media/"+$scope.dataPeserta.media_id).then(function (response) {
-            $scope.dataPeserta.payment_name = response.data.data.file_name;
-          });
-        }
-
-      });
-    }
-
-    $scope.uploadPayment = function(file, errFiles, id) {
-      $scope.payment = file;
-      $scope.errPayment = errFiles;
-
-      if (id) {
-        $('.payment-info.'+id).text($scope.payment.name);
-      }else{
-        $scope.infoPayment = $scope.payment.name;
-      }
-    }
-
-    $scope.updateDetail = function(id) {
-
-      if ($scope.payment) {
-
-        $('.btn.update-detail.'+id).text('Menyimpan...');
-
-        $scope.payment.upload = Upload.upload({
-            url: 'http://api.ifest-uajy.com/v1/media',
-            data: { media: $scope.payment }
-        }).then(function (response) {
-
-          $scope.dataDetail['media_id'] = response.data.data.id;
-
-          $http({
-            method  : 'PATCH',
-            url     : 'http://api.ifest-uajy.com/v1/seminar/'+$scope.idTeam+'/detail',
-            data    : $.param($scope.dataDetail),
-            headers : { 'Content-Type': 'application/x-www-form-urlencoded' }
-           })
-          .then(function(data) {
-            $scope.getTeam();
-          });
-        });
-      }
-    }
-
-    $scope.destroyDetail = function(id) {
-
-     $scope.dataDetail['media_id'] = null;
-     $scope.dataDetail['status'] = null;
-
-     $('.btn.delete-detail.'+id).text('Menghapus...');
-
-     $http({
-       method  : 'PATCH',
-       url     : 'http://api.ifest-uajy.com/v1/seminar/'+$scope.idTeam+'/detail',
-       data    : $.param($scope.dataDetail),
-       headers : { 'Content-Type': 'application/x-www-form-urlencoded' }
-      })
-     .then(function(data) {
-       $scope.getTeam();
-       $('.btn.delete-detail.'+id).text('Hapus');
-     });
-    }
-
-    $scope.getTeam();
-  });
-
-
-
-</script>
+<script type="text/javascript" src="js/seminarApp.js"></script>
 
 <?php
   }else{
