@@ -1,5 +1,5 @@
 var base_url = "http://api.ifest-uajy.com/v1/seminar";
-var media_url = "http://api.ifest-uajy.com/storage/media/";
+var media_url = "http://api.ifest-uajy.com/v1/media";
 
 function httpInterceptor() {
   return {
@@ -57,7 +57,7 @@ registerApp.controller("registerCtrl", function($scope, $http, $window) {
           $scope.button = "DAFTAR";
           break;
         default:
-          //$window.location.href = 'pendaftaran-berhasil.html';
+          $window.location.href = 'pendaftaran-berhasil.html';
           $scope.button = "DAFTAR";
       }
     });
@@ -139,7 +139,7 @@ app.controller('dataIndex', function($scope, $http, $timeout, Upload) {
       $scope.dataPesertaLoaded = 1;
 
       if ($scope.dataPeserta.media_id) {
-        $http.get(media_url+$scope.dataPeserta.media_id).then(function (response) {
+        $http.get(media_url+'/'+$scope.dataPeserta.media_id).then(function (response) {
           $scope.dataPeserta.payment_name = response.data.data.file_name;
         });
       }
@@ -194,7 +194,7 @@ app.controller('dataIndex', function($scope, $http, $timeout, Upload) {
       $('.btn.update-detail.'+id).text('Menyimpan...');
 
       $scope.payment.upload = Upload.upload({
-          url: 'http://api.ifest-uajy.com/v1/media',
+          url: media_url,
           data: { media: $scope.payment }
       }).then(function (response) {
 
