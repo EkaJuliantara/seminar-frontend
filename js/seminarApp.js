@@ -57,7 +57,7 @@ registerApp.controller("registerCtrl", function($scope, $http, $window) {
           $scope.button = "DAFTAR";
           break;
         default:
-          $window.location.href = 'pendaftaran-berhasil.html';
+          //$window.location.href = 'pendaftaran-berhasil.html';
           $scope.button = "DAFTAR";
       }
     });
