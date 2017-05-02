@@ -1,5 +1,5 @@
-var base_url = "http://api.ifest-uajy.com/v1/seminar/";
-var media_url = "http://api.ifest-uajy.com/v1/media/";
+var base_url = "http://api.ifest-uajy.com/v1/seminar";
+var media_url = "http://api.ifest-uajy.com/storage/media/";
 
 function httpInterceptor() {
   return {
@@ -85,7 +85,7 @@ var loginApp = angular.module("loginApp", [])
 
     $http({
       method  : 'POST',
-      url     : base_url+'login',
+      url     : base_url+'/'+'login',
       data    : $.param($scope.formData),
       headers : { 'Content-Type': 'application/x-www-form-urlencoded' }
      })
@@ -132,7 +132,7 @@ app.controller('dataIndex', function($scope, $http, $timeout, Upload) {
   $scope.dataDetailsLoaded = 0;
 
   $scope.getTeam = function() {
-    $http.get(base_url+$scope.idTeam).then(function (response) {
+    $http.get(base_url+'/'+$scope.idTeam).then(function (response) {
 
       $scope.dataPesertaLoaded = 0;
       $scope.dataPeserta = response.data.data;
@@ -155,7 +155,7 @@ app.controller('dataIndex', function($scope, $http, $timeout, Upload) {
 
     $http({
       method  : 'PATCH',
-      url     : base_url+$scope.idTeam,
+      url     : base_url+'/'+$scope.idTeam,
       data    : $.param($scope.dataPeserta),
       headers : { 'Content-Type': 'application/x-www-form-urlencoded' }
      })
@@ -202,7 +202,7 @@ app.controller('dataIndex', function($scope, $http, $timeout, Upload) {
 
         $http({
           method  : 'PATCH',
-          url     : base_url+$scope.idTeam+'/detail',
+          url     : base_url+'/'+$scope.idTeam+'/detail',
           data    : $.param($scope.dataDetail),
           headers : { 'Content-Type': 'application/x-www-form-urlencoded' }
          })
@@ -222,7 +222,7 @@ app.controller('dataIndex', function($scope, $http, $timeout, Upload) {
 
    $http({
      method  : 'PATCH',
-     url     : base_url+$scope.idTeam+'/detail',
+     url     : base_url+'/'+$scope.idTeam+'/detail',
      data    : $.param($scope.dataDetail),
      headers : { 'Content-Type': 'application/x-www-form-urlencoded' }
     })
