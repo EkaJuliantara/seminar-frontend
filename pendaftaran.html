@@ -117,6 +117,11 @@
                                <input ng-model="formData.password" type="password" name="password" value="" required="">
                           </div>
                           <div class="form-row">
+                              <label>Vegetarian</label>
+                              <input ng-model="formData.vegetarian" type="radio" name="vegetarian" ng-value='"1"' /> Iya
+                              <input ng-model="formData.vegetarian" type="radio" name="vegetarian" ng-value='"0"' /> Tidak
+                          </div>
+                          <div class="form-row">
                             <button ng-disabled="button == 'MENDAFTAR...'" type="submit">{{ button }}</button>
                         </div>
                         <span ng-show="errors.ise">{{ errors.ise }}</span>
