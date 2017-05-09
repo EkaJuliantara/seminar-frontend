@@ -111,6 +111,7 @@
                           <div class="form-row">
                               <label>No Telepon</label>
                               <input ng-model="formData.phone" type="text" name="phone" value="" required="">
+                            <span ng-show="errors.phone[0]" class="error-msg">{{errors.phone[0]}}</span>
                           </div>
                           <div class="form-row">
                               <label>Kata Sandi</label>
